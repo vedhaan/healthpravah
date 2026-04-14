@@ -8497,7 +8497,848 @@
     </section>
 
     <!-- FOOTER SECTION -->
+<!-- FOOTER — Health Pravah -->
+<!-- No external dependencies — all icons inline SVG -->
 
+<style>
+  /* ══════════════════════════════════════════════
+     FOOTER SHELL
+  ══════════════════════════════════════════════ */
+  .hp-footer {
+    background: #070E1C;
+    position: relative;
+    overflow: hidden;
+    font-family: var(--font-main);
+  }
+
+  /* Ambient top glow */
+  .hp-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(27,79,168,0.6) 30%,
+      rgba(42,138,42,0.5) 50%,
+      rgba(27,79,168,0.6) 70%,
+      transparent 100%
+    );
+  }
+
+  /* Radial glow blobs */
+  .hp-footer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 15% 0%, rgba(27,79,168,0.12) 0%, transparent 40%),
+      radial-gradient(ellipse at 85% 100%, rgba(42,138,42,0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  /* Subtle grid lines */
+  .footer-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 64px 64px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .footer-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ══════════════════════════════════════════════
+     PRE-FOOTER CTA BANNER
+  ══════════════════════════════════════════════ */
+  .footer-cta-band {
+    background: linear-gradient(120deg, #0D2F6E 0%, #1A1A6E 50%, #0D2F6E 100%);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 52px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .footer-cta-band::before {
+    content: '';
+    position: absolute;
+    right: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    border: 60px solid rgba(255,255,255,0.03);
+    pointer-events: none;
+  }
+
+  .footer-cta-band::after {
+    content: '';
+    position: absolute;
+    left: -80px;
+    bottom: -80px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    border: 50px solid rgba(42,138,42,0.06);
+    pointer-events: none;
+  }
+
+  .footer-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-cta-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 2.8vw, 30px);
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 8px;
+    line-height: 1.25;
+  }
+
+  .footer-cta-text h3 em {
+    font-style: italic;
+    color: #f4a35a;
+  }
+
+  .footer-cta-text p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.58);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .footer-cta-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+  }
+
+  .fcta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-family: var(--font-main);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 13px 26px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+  }
+
+  .fcta-btn.primary {
+    background: #E8730A;
+    color: #fff;
+  }
+
+  .fcta-btn.primary:hover {
+    background: #cf6208;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(232,115,10,0.35);
+  }
+
+  .fcta-btn.secondary {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.14);
+  }
+
+  .fcta-btn.secondary:hover {
+    background: rgba(255,255,255,0.14);
+    transform: translateY(-2px);
+  }
+
+  /* ══════════════════════════════════════════════
+     MAIN FOOTER BODY
+  ══════════════════════════════════════════════ */
+  .footer-body {
+    padding: 72px 0 56px;
+  }
+
+  .footer-columns {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
+    gap: 48px 40px;
+    margin-bottom: 56px;
+  }
+
+  /* ── Column headings ──────────────────────── */
+  .footer-col-title {
+    font-family: var(--font-alt);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin: 0 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-col-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  /* ═══════════════════════════════════════════
+     COL 1 — Brand
+  ═══════════════════════════════════════════ */
+  .footer-brand .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    text-decoration: none;
+  }
+
+  .footer-brand .logo-img {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    object-fit: contain;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 4px;
+  }
+
+  .footer-brand .logo-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-brand .logo-text strong {
+    font-family: var(--font-alt);
+    font-size: 17px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -0.3px;
+  }
+
+  .footer-brand .logo-text span {
+    font-family: var(--font-main);
+    font-size: 10.5px;
+    color: rgba(255,255,255,0.38);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+
+  .footer-brand .brand-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.48);
+    line-height: 1.75;
+    margin: 0 0 24px;
+    max-width: 300px;
+  }
+
+  /* Trust badges */
+  .footer-trust-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .trust-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 8px;
+    padding: 7px 12px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    font-weight: 500;
+  }
+
+  .trust-badge svg { flex-shrink: 0; }
+
+  /* Social icons */
+  .footer-socials {
+    display: flex;
+    gap: 10px;
+  }
+
+  .social-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .social-icon:hover {
+    background: rgba(27,79,168,0.35);
+    border-color: rgba(27,79,168,0.5);
+    transform: translateY(-2px);
+  }
+
+  /* ═══════════════════════════════════════════
+     COL 2 & 3 — Nav links
+  ═══════════════════════════════════════════ */
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-links li a {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s ease, gap 0.2s ease;
+    line-height: 1.4;
+  }
+
+  .footer-links li a::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(27,79,168,0.5);
+    flex-shrink: 0;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .footer-links li a:hover {
+    color: #fff;
+    gap: 12px;
+  }
+
+  .footer-links li a:hover::before {
+    background: #E8730A;
+    transform: scale(1.4);
+  }
+
+  /* ═══════════════════════════════════════════
+     COL 4 — Contact
+  ═══════════════════════════════════════════ */
+  .footer-contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .footer-contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+  }
+
+  .fc-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: rgba(27,79,168,0.15);
+    border: 1px solid rgba(27,79,168,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .fc-text strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 3px;
+    font-family: var(--font-alt);
+  }
+
+  .fc-text span {
+    font-size: 13px;
+    color: rgba(255,255,255,0.42);
+    line-height: 1.5;
+  }
+
+  .fc-text a {
+    color: rgba(255,255,255,0.42);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .fc-text a:hover { color: #fff; }
+
+  /* WhatsApp quick link */
+  .footer-wa-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(42,138,42,0.12);
+    border: 1px solid rgba(42,138,42,0.25);
+    border-radius: 12px;
+    padding: 12px 16px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .footer-wa-link:hover {
+    background: rgba(42,138,42,0.22);
+    border-color: rgba(42,138,42,0.45);
+    transform: translateY(-1px);
+  }
+
+  .footer-wa-link span {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #6fcf72;
+  }
+
+  .footer-wa-link small {
+    display: block;
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.35);
+    font-weight: 400;
+    margin-top: 1px;
+  }
+
+  /* ══════════════════════════════════════════════
+     DIVIDER
+  ══════════════════════════════════════════════ */
+  .footer-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255,255,255,0.07) 20%,
+      rgba(255,255,255,0.07) 80%,
+      transparent 100%
+    );
+    margin-bottom: 28px;
+  }
+
+  /* ══════════════════════════════════════════════
+     FOOTER BOTTOM BAR
+  ══════════════════════════════════════════════ */
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 32px;
+  }
+
+  .footer-bottom-left {
+    font-size: 13px;
+    color: rgba(255,255,255,0.28);
+    line-height: 1.6;
+  }
+
+  .footer-bottom-left a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-bottom-left a:hover { color: #fff; }
+
+  .footer-bottom-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .footer-bottom-right a {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.28);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .footer-bottom-right a:hover { color: rgba(255,255,255,0.7); }
+
+  .footer-bottom-right .dot-sep {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+  }
+
+  /* Back to top */
+  .back-to-top {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 7px 14px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .back-to-top:hover {
+    background: rgba(27,79,168,0.25);
+    border-color: rgba(27,79,168,0.4);
+    color: rgba(255,255,255,0.8);
+    transform: translateY(-2px);
+  }
+
+  /* Certification strip */
+  .footer-cert-strip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+  }
+
+  .cert-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 6px;
+    padding: 3px 9px;
+  }
+
+  /* ══════════════════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════════════════ */
+  @media (max-width: 1024px) {
+    .footer-columns {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px 32px;
+    }
+
+    .footer-brand { grid-column: 1 / -1; }
+    .footer-brand .brand-desc { max-width: 100%; }
+  }
+
+  @media (max-width: 768px) {
+    .footer-cta-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .footer-cta-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .fcta-btn { justify-content: center; }
+
+    .footer-columns {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .footer-brand { grid-column: auto; }
+
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      padding-bottom: 24px;
+    }
+
+    .footer-bottom-right {
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-inner { padding: 0 20px; }
+    .footer-cta-band { padding: 40px 0; }
+    .footer-body { padding: 52px 0 40px; }
+    .footer-trust-badges { gap: 8px; }
+  }
+</style>
+
+<!-- PRE-FOOTER CTA BAND -->
+<div class="footer-cta-band">
+  <div class="footer-inner">
+    <div class="footer-cta-inner">
+      <div class="footer-cta-text">
+        <h3>Ready to Start Your <em>Recovery?</em></h3>
+        <p>Book a session today — same-day appointments available. Walk-ins welcome.</p>
+      </div>
+      <div class="footer-cta-actions">
+        <a href="#appointment" class="fcta-btn primary">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+            <rect x="1" y="2" width="13" height="12" rx="2" stroke="white" stroke-width="1.5"/>
+            <path d="M1 6h13M5 1v2M10 1v2" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Book Appointment
+        </a>
+        <a href="https://wa.me/91XXXXXXXXXX" class="fcta-btn secondary" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+            <path d="M13 2.2A6.85 6.85 0 001.8 11.5L1 14l2.6-.9A6.85 6.85 0 0013 7.5a6.8 6.8 0 000-5.3z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9.8 9c-.2.5-1.1 1-1.6 1.1-.8.1-1.4-.1-3.2-1.5C3.2 7.2 2.4 5.8 2.4 5.1c0-.6.5-1.4 1-1.6.4-.2.8-.1 1 .1l.7 1.2c.1.2.1.4-.1.6l-.4.4c.3.6.9 1.3 1.5 1.7l.4-.4c.2-.2.4-.2.6-.1l1.2.7c.3.2.3.6 0 .9z" fill="currentColor"/>
+          </svg>
+          Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN FOOTER -->
+<footer class="hp-footer">
+  <div class="footer-grid-bg"></div>
+
+  <div class="footer-inner">
+    <div class="footer-body">
+
+      <div class="footer-columns">
+
+        <!-- ═══ COL 1: BRAND ═══ -->
+        <div class="footer-brand">
+          <a href="#" class="brand-logo">
+            <img src="img/HP logo.png" alt="Health Pravah Logo" class="logo-img">
+            <div class="logo-text">
+              <strong>Health Pravah</strong>
+              <span>Physiotherapy & Orthopaedics</span>
+            </div>
+          </a>
+
+          <p class="brand-desc">
+            Restoring movement, relieving pain, and rebuilding lives — through evidence-based physiotherapy and compassionate expert care since 2016.
+          </p>
+
+          <div class="footer-trust-badges">
+            <div class="trust-badge">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                <path d="M6.5 1L2 2.8v4.2C2 9.5 4 11.5 6.5 12 9 11.5 11 9.5 11 7V2.8L6.5 1z" stroke="#2A8A2A" stroke-width="1.3" stroke-linejoin="round"/>
+                <path d="M4.5 6.5l1.5 1.5 2.5-2.5" stroke="#2A8A2A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Certified Physiotherapists
+            </div>
+            <div class="trust-badge">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                <circle cx="6.5" cy="6.5" r="5" stroke="#1B4FA8" stroke-width="1.3"/>
+                <path d="M6.5 3.5v3l2 2" stroke="#1B4FA8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              8+ Years Experience
+            </div>
+            <div class="trust-badge">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                <path d="M6.5 1.5l1.2 2.5 2.8.4-2 2 .5 2.8L6.5 8l-2.5 1.2.5-2.8-2-2 2.8-.4 1.2-2.5z" stroke="#E8730A" stroke-width="1.3" stroke-linejoin="round"/>
+              </svg>
+              2000+ Patients Treated
+            </div>
+          </div>
+
+          <div class="footer-socials">
+            <!-- Facebook -->
+            <a href="#" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M10.5 2H9a2.5 2.5 0 00-2.5 2.5V6H5v2.5h1.5V14h2.5V8.5h2L11.5 6H9V4.5A.5.5 0 019.5 4H10.5V2z" stroke="rgba(255,255,255,0.55)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <!-- Instagram -->
+            <a href="#" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <rect x="2" y="2" width="12" height="12" rx="3.5" stroke="rgba(255,255,255,0.55)" stroke-width="1.3"/>
+                <circle cx="8" cy="8" r="2.8" stroke="rgba(255,255,255,0.55)" stroke-width="1.3"/>
+                <circle cx="11.2" cy="4.8" r="0.7" fill="rgba(255,255,255,0.55)"/>
+              </svg>
+            </a>
+            <!-- YouTube -->
+            <a href="#" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <rect x="1.5" y="4" width="13" height="8" rx="2.5" stroke="rgba(255,255,255,0.55)" stroke-width="1.3"/>
+                <path d="M6.5 6.5l4 1.5-4 1.5V6.5z" stroke="rgba(255,255,255,0.55)" stroke-width="1.1" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <!-- Google Maps -->
+            <a href="#" class="social-icon" aria-label="Google Maps" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M8 1.5A4.5 4.5 0 003.5 6C3.5 9.5 8 14.5 8 14.5S12.5 9.5 12.5 6A4.5 4.5 0 008 1.5z" stroke="rgba(255,255,255,0.55)" stroke-width="1.3"/>
+                <circle cx="8" cy="6" r="1.5" stroke="rgba(255,255,255,0.55)" stroke-width="1.3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- ═══ COL 2: QUICK LINKS ═══ -->
+        <div>
+          <p class="footer-col-title">Quick Links</p>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#conditions">Conditions We Treat</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#doctors">Meet Our Doctors</a></li>
+            <li><a href="#appointment">Book Appointment</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- ═══ COL 3: SERVICES ═══ -->
+        <div>
+          <p class="footer-col-title">Services</p>
+          <ul class="footer-links">
+            <li><a href="#services">Sports Physiotherapy</a></li>
+            <li><a href="#services">Neuro Rehabilitation</a></li>
+            <li><a href="#services">Spine Therapy</a></li>
+            <li><a href="#services">Pediatric Care</a></li>
+            <li><a href="#services">Geriatric Care</a></li>
+            <li><a href="#services">Post-Surgical Rehab</a></li>
+          </ul>
+        </div>
+
+        <!-- ═══ COL 4: CONTACT ═══ -->
+        <div>
+          <p class="footer-col-title">Contact Us</p>
+          <ul class="footer-contact-list">
+            <li>
+              <div class="fc-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M2 3.25A1.25 1.25 0 013.25 2h.88a.625.625 0 01.6.438l.682 2.388a.625.625 0 01-.192.64L4.25 6.25S5 8.75 7.75 10l1.1-1.138a.625.625 0 01.64-.191l2.388.681a.625.625 0 01.438.6v.798A1.25 1.25 0 0111.066 12C4.848 12 2 7.152 2 3.25z" stroke="#1B4FA8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="fc-text">
+                <strong>Phone</strong>
+                <span><a href="tel:+91XXXXXXXXXX">+91 XXXX XXX XXX</a></span>
+              </div>
+            </li>
+            <li>
+              <div class="fc-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <rect x="1.5" y="3" width="11" height="8" rx="1.5" stroke="#1B4FA8" stroke-width="1.3"/>
+                  <path d="M1.5 5l5.5 3.5L12.5 5" stroke="#1B4FA8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="fc-text">
+                <strong>Email</strong>
+                <span><a href="mailto:info@healthpravah.com">info@healthpravah.com</a></span>
+              </div>
+            </li>
+            <li>
+              <div class="fc-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M7 1.5A4 4 0 003 5.5C3 8.75 7 12.5 7 12.5S11 8.75 11 5.5A4 4 0 007 1.5z" stroke="#1B4FA8" stroke-width="1.3"/>
+                  <circle cx="7" cy="5.5" r="1.5" stroke="#1B4FA8" stroke-width="1.3"/>
+                </svg>
+              </div>
+              <div class="fc-text">
+                <strong>Clinic Address</strong>
+                <span>Your full clinic address,<br>Landmark, City – PIN Code</span>
+              </div>
+            </li>
+            <li>
+              <div class="fc-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <circle cx="7" cy="7" r="5" stroke="#1B4FA8" stroke-width="1.3"/>
+                  <path d="M7 4v3l2 2" stroke="#1B4FA8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="fc-text">
+                <strong>Working Hours</strong>
+                <span>Mon – Sat: 9 AM – 7 PM<br>Sunday: 10 AM – 2 PM</span>
+              </div>
+            </li>
+          </ul>
+
+          <!-- WhatsApp quick link -->
+          <a href="https://wa.me/91XXXXXXXXXX" class="footer-wa-link" target="_blank" rel="noopener">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <circle cx="11" cy="11" r="10" fill="rgba(42,138,42,0.2)"/>
+              <path d="M16.5 13.8c-.25.65-1.2 1.2-1.75 1.3-.9.15-1.6-.1-3.7-1.55C9 12.1 8.3 10.75 8.3 10.2c0-.6.55-1.5 1.1-1.75.45-.2.85-.1 1.1.15l.75 1.25c.15.25.15.5-.1.7l-.4.45c.4.7 1.05 1.4 1.75 1.85l.45-.4c.25-.2.5-.2.7-.1l1.25.75c.35.2.35.65.1 1z" fill="#4caf50"/>
+            </svg>
+            <div>
+              <span>Chat on WhatsApp</span>
+              <small>Fastest response — usually within minutes</small>
+            </div>
+          </a>
+        </div>
+
+      </div>
+      <!-- /columns -->
+
+      <!-- Divider -->
+      <div class="footer-divider"></div>
+
+      <!-- Bottom bar -->
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          <div>© 2025 Health Pravah Physiotherapy & Orthopaedics. All rights reserved.</div>
+          <div class="footer-cert-strip">
+            <div class="cert-pill">
+              <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M4.5 1L1.5 2.2v3C1.5 7 2.8 8.2 4.5 8.5 6.2 8.2 7.5 7 7.5 5.2v-3L4.5 1z" stroke="rgba(255,255,255,0.25)" stroke-width="1"/></svg>
+              Privacy Protected
+            </div>
+            <div class="cert-pill">
+              <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><circle cx="4.5" cy="4.5" r="3.5" stroke="rgba(255,255,255,0.25)" stroke-width="1"/><path d="M3 4.5l1 1 2-2" stroke="rgba(255,255,255,0.25)" stroke-width="1" stroke-linecap="round"/></svg>
+              HIPAA Compliant
+            </div>
+            <div class="cert-pill">
+              <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><rect x="1" y="1" width="7" height="7" rx="1.5" stroke="rgba(255,255,255,0.25)" stroke-width="1"/><path d="M3 4.5h3M4.5 3v3" stroke="rgba(255,255,255,0.25)" stroke-width="1" stroke-linecap="round"/></svg>
+              Registered Clinic
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom-right">
+          <a href="#">Privacy Policy</a>
+          <div class="dot-sep"></div>
+          <a href="#">Terms of Use</a>
+          <div class="dot-sep"></div>
+          <a href="#">Sitemap</a>
+          <a href="#" class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M6 9V3M3 6l3-3 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Back to top
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>
 
 
     <script>
